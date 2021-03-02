@@ -28,8 +28,10 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username:  nominpurevj
 
 # Build settings
-# removed minima theme for a regular theme
-# theme: minima
+# removed minima theme for a mint theme
+theme: jekyll-theme-mint
+blog_theme: light
+
 plugins:
   - jekyll-feed
 
