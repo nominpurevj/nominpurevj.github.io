@@ -4,13 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hi, my name’s Nomin and I’m a data science researcher, a tutor of Math, and a soon-to-be graduate from the University of British Columbia. I've gained experience with the data science pipeline (preparing, cleaning, exploring, modeling, and interpreting data) from working in a research laboratory, on personal projects, and from formal courses.  
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I enjoy learning things hands-on and enjoy R, SQL, and Python for data science. I also love searching for "the right" questions while imposed under constraints from the datasets.  
 
-You can find the source code for Jekyll at GitHub:
+
+
+If curious: I've created this website using Jekyll! Check out this info to learn more:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
 
