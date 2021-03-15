@@ -10,7 +10,7 @@ I enjoy learning things hands-on and enjoy R, SQL, and Python for data science. 
 
 
 
-If curious: I've created this website using Jekyll! Check out this info to learn more:
+If you're curious, I've created this website using Jekyll! Check out this info to learn more:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
 
