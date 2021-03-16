@@ -200,7 +200,7 @@ mean(qda.cv.error)
 The test error rate here is `44%`
 
 # Results & Conclusion
-In conclusion, Logistic Regression performed very similarly to LDA at a test error rate of about `41%`.  QDA produced the worst performance at a test error rate of `44%`. This result is likely due to the fact that some of the explanatory variables are distributed similarly to that of the t-distribution, and were barely correlated. Both LDA and Logistic Regression can work well with these conditions, but QDA cannot.
+In conclusion, Logistic Regression performed very similarly to LDA at a test error rate of about `41%`.  QDA produced the worst performance at a test error rate of `44%`. This result is likely due to the fact that some of the explanatory variables are distributed similarly to that of the t-distribution and were barely correlated as shown in the Data Exploration stage. Both LDA and Logistic Regression can work well with these conditions, but QDA cannot.
 
 Even though the test error rate is high at `41%`, there is still some improvement over pure chance (`50%`), leaving the door open for future models to use similar variables. Combined with other observations from within the stock market and outside of the stock market, the model may be able to decrease its test error rate further.  
 
