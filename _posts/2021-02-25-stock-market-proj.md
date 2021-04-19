@@ -24,7 +24,7 @@ The data features trading prices from the SPDR S&P 500 ETF captured at the openi
 >1. The present analysis uses **classification** to predict whether the price of the S&P 500 ETF will go up or down on a given day.
 >2. There are many different ways to predict the ups and downs. Logistic Regression, LDA, and QDA are commonly used for this task. This analysis tries to find which of the three is best for this scenario.
 >4. In all methods, a portion of the stock market data is responsible for the code that learns how to classify. The other portion is used to confirm if the code is classifying well-enough. **10-fold cross validation** helps us carry out this train-and-test procedure 10 times, for safety.  
->3. The 10-fold cross validation gives us the **test errors**, which is what I'm gonna compare. When it comes to test error, lower is better.
+>3. The 10-fold cross validation gives us the **test errors**, which is what I'm going to compare. The classification model makes predictions based on data it hasnt seen before. Test error indicates the ratio of incorrect predictions made by the model. When it comes to test error, lower is better.
 
 
 # Data Cleaning 
@@ -50,7 +50,7 @@ spy.us['volume.lag3'] <- c(NA, spy.us$volume.lag2[-3201])
 spy.us['volume.lag4'] <- c(NA, spy.us$volume.lag3[-3201]) 
 spy.us['volume.lag5'] <- c(NA, spy.us$volume.lag4[-3201]) 
 
-# add year as a variable in order to replace "date", which is too specific
+# add year as a variable in order to replace "date"
 spy.us['year'] <- as.numeric(substring(spy.us$Date, 1, 4))
 
 # reorder the columns
@@ -75,8 +75,9 @@ spy.us$up[spy.us$direction == 'up'] <- 1
 The cleaned data now contains `12` explanatory variables.
 
 #### A preview of the data after cleaning:
-![S&P 500 SPY ETF daily returns data cleaned](/assets/images/spy_us_data_after_1.JPG)
-![S&P 500 SPY ETF daily returns data cleaned](/assets/images/spy_us_data_after_2.JPG)
+![S&P 500 SPY ETF daily returns data cleaned (section 1)](/assets/images/spy_us_data_after_1.JPG)
+
+![S&P 500 SPY ETF daily returns data cleaned (section 2)](/assets/images/spy_us_data_after_2.JPG)
 
 # Data Exploration 
 
@@ -102,7 +103,7 @@ ggplot(spy.us, aes(lag2, volume.lag1)) +
 
 This graph makes it clear why there is a negative associated between volume and the previous day's returns. 
 
-It does not necessarily seem to be the case that lower return on a given day is associated with more activity the next day. What more seems to be the case is that **both high very low and very high returns on a given day are associated with high volumes of exchange the next day**. However, the skew is more towards the low returns.
+It does not necessarily seem to be the case that lower return on a given day is associated with more activity the next day. What more seems to be the case is that **both very high losses and very high returns on a given day are associated with high volumes of exchange the next day**. However, there is a slight skew towards the left side of the scatterplot, meaning that the most extreme instances of high trading volume are ones that are following days with very high losses, rather than very high returns. This likely explains the negative association between the two variables.
 
 # Subset Selection
 
@@ -200,9 +201,9 @@ mean(qda.cv.error)
 The test error rate here is `44%`
 
 # Results & Conclusion
-In conclusion, Logistic Regression performed very similarly to LDA at a test error rate of about `41%`.  QDA produced the worst performance at a test error rate of `44%`. This result is likely due to the fact that some of the explanatory variables are distributed similarly to that of the t-distribution and were barely correlated as shown in the Data Exploration stage. Both LDA and Logistic Regression can work well with these conditions, but QDA cannot.
+In conclusion, Logistic Regression performed very similarly to LDA at a test error rate of about `41%`.  QDA produced the worst performance at a test error rate of `44%`. This result is likely due to the fact that the explanatory variables `lag1`, `lag2`, `lag5` are distributed similarly to that of the t-distribution. Moreover, the variables used in the models were barely correlated as shown in the Data Exploration stage. Both LDA and Logistic Regression can work well with these conditions, but QDA cannot.
 
-Even though the test error rate is high at `41%`, there is still some improvement over pure chance (`50%`), leaving the door open for future models to use similar variables. Combined with other observations from within the stock market and outside of the stock market, the model may be able to decrease its test error rate further.  
+Even though the test error rate is high at `41%`, there is still some improvement over pure chance (`50%`), leaving the door open for future models to use similar variables. Combined with other observations from within the stock market and outside of the stock market, the Logistic Regression model or the LDA model may be able to decrease its test error rate further.  
 
 # References
 
