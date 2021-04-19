@@ -75,7 +75,7 @@ spy.us$up[spy.us$direction == 'up'] <- 1
 The cleaned data now contains `12` explanatory variables.
 
 #### A preview of the data after cleaning:
-![S&P 500 SPY ETF daily returns data cleaned (section 1)](/assets/images/spy_us_data_after_1.JPG)
+![S&P 500 SPY ETF daily returns data cleaned (section 1)](/assets/images/spy_us_data_after_1.jpg)
 
 ![S&P 500 SPY ETF daily returns data cleaned (section 2)](/assets/images/spy_us_data_after_2.JPG)
 
